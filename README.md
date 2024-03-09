@@ -27,6 +27,7 @@ Go to the project directory
 Run program
 
 -add : adds folder you want to track
+
 -email : email address related to your git
 
 ```bash
