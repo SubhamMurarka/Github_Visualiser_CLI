@@ -198,14 +198,14 @@ func printCell(val int, today bool) {
 
 // printing only for odd days as to keep UI clean and compact
 func printDayCol(day int) {
-	out := " "
+	out := "     "
 	switch day {
 	case 1:
-		out = "Mon"
+		out = " Mon "
 	case 3:
-		out = "Wed"
+		out = " Wed "
 	case 5:
-		out = "Fri"
+		out = " Fri "
 	}
 	fmt.Print(out)
 }
@@ -214,14 +214,14 @@ func printMonths() {
 	// time before daysInLastSixMonths from current time
 	week := getBeginningOfDay(time.Now()).Add(-(daysInLastSixMonths * time.Hour * 24))
 	month := week.Month()
-
+	fmt.Printf("         ")
 	for {
 		// checking if we switched to new month or not
 		if week.Month() != month {
-			fmt.Printf("%s", week.Month().String()[:3])
+			fmt.Printf("%s ", week.Month().String()[:3])
 			month = week.Month()
 		} else {
-			fmt.Printf(" ")
+			fmt.Printf("    ")
 		}
 		// moving to next week
 		week = week.Add(7 * time.Hour * 24)

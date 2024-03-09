@@ -2,7 +2,10 @@ module github.com/SubhamMurarka/Github_Visualiser_CLI
 
 go 1.21.0
 
-require github.com/go-git/go-git/v5 v5.11.0
+require (
+	github.com/go-git/go-git/v5 v5.11.0
+	github.com/mitchellh/go-homedir v1.1.0
+)
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
