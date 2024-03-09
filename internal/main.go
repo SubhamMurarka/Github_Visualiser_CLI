@@ -15,6 +15,7 @@ import (
 
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/mitchellh/go-homedir"
 )
 
 func main() {
@@ -145,8 +146,12 @@ func recursiveScanFolder(folder string) []string {
 
 func scan(folder string) {
 	fmt.Printf("Found Folder\n\n")
+	folderExpanded, err := homedir.Expand(folder)
+	if err != nil {
+		log.Fatal(err)
+	}
 	//recursively scan for all directories to check for .git files
-	repositories := recursiveScanFolder(folder)
+	repositories := recursiveScanFolder(folderExpanded)
 	filePath := gotDotFilePath()
 	addNewSliceElementsToFile(filePath, repositories)
 }
