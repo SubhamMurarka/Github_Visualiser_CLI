@@ -13,11 +13,13 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
+// writing slice to file
 func dumpStringsSliceToFile(repos []string, filePath string) {
 	content := strings.Join(repos, "\n")
 	os.WriteFile(filePath, []byte(content), 0755)
 }
 
+// joining two slices, updating existing slice with new one
 func joinSlices(new []string, existing []string) []string {
 	for _, i := range new {
 		if !slices.Contains(existing, i) {
@@ -27,6 +29,7 @@ func joinSlices(new []string, existing []string) []string {
 	return existing
 }
 
+// opening file and checking if it exists if not create it.
 func openFile(filepath string) *os.File {
 	f, err := os.OpenFile(filepath, os.O_APPEND|os.O_RDWR, 0755)
 	if err != nil {
@@ -43,6 +46,7 @@ func openFile(filepath string) *os.File {
 	return f
 }
 
+// parsing file
 func parseFileLinesToSlice(filepath string) []string {
 	f := openFile(filepath)
 	defer f.Close()
@@ -68,6 +72,7 @@ func addNewSliceElementsToFile(filePath string, newRepos []string) {
 	dumpStringsSliceToFile(repos, filePath)
 }
 
+// getting path to file .gitlocalstats
 func gotDotFilePath() string {
 	usr, err := user.Current()
 	if err != nil {
@@ -79,6 +84,7 @@ func gotDotFilePath() string {
 	return dotFile
 }
 
+// scaning all directories and saving in slice ext is .git
 func scanGitFolders(folders []string, folder string) []string {
 	folder = strings.TrimSuffix(folder, "/")
 
