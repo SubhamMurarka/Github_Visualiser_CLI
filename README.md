@@ -1,42 +1,42 @@
-# Github Visualiser CLI
+# GitHub Visualizer CLI
 
-Add repostitories and track right from your CLI
+GitHub Visualizer CLI is a powerful command-line tool for tracking and visualizing your Git repositories directly from the terminal. Add directories containing Git repositories and view detailed commit statistics in a clean, visual format.
 
-# Have a Demo!
+## Demo
 
-[Screencast from 09-03-24 06:38:43 PM IST.webm](https://github.com/SubhamMurarka/Github_Visualiser_CLI/assets/108292932/341e5cf1-3184-4245-828f-26b26a480526)
+Check out the [demo video](https://github.com/SubhamMurarka/Github_Visualiser_CLI/assets/108292932/341e5cf1-3184-4245-828f-26b26a480526) to see GitHub Visualizer CLI in action!
+
+## Features
+
+- **Add Directories:** Scan and track multiple Git repositories within specified directories.
+- **Email Filtering:** View commit statistics filtered by a specific email address.
+- **Visual Statistics:** Clean, color-coded display of commit activity over the last six months.
 
 ## Tech Stack
 
-**Language:** GO
+![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white&style=for-the-badge)
 
-## Run Locally
+## Installation
 
-Clone the project
-
-```bash
-  git clone https://github.com/SubhamMurarka/Github_Visualiser_CLI.git
-```
-
-Go to the project directory
+To install GitHub Visualizer CLI, clone the repository and navigate to the project directory:
 
 ```bash
-  cd cmd
+git clone https://github.com/SubhamMurarka/Github_Visualiser_CLI.git
+cd Github_Visualiser_CLI
 ```
 
-Run program
+## Add a directory
 
--add : adds folder you want to track
-
--email : email address related to your git
+This command adds the specified directory, allowing the CLI to scan for Git repositories and track them:
 
 ```bash
-  -add
-   go run . -add "{path to your folder}"
-
-  -email
-   go run . -email "{your email address}"
+go run . -add "/path/to/your/folder"
 ```
 
+## Filter commits by email
 
+This command filters and displays commit statistics for the specified email address:
 
+```bash
+go run . -email "your-email@example.com"
+```
